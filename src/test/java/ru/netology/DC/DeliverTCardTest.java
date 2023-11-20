@@ -34,8 +34,8 @@ public class DeliverTCardTest {
         $("[data-test-id='agreement']").click();
         $("button.button").click();
         $("[data-test-id='notification']").shouldBe(Condition.visible, Duration.ofSeconds(15));
-        $(".notification__title").equals("Успешно!");
-        $(".notification__content").equals("Встреча успешно забронирована на ");
+        $(".notification__title").shouldBe(Condition.text("Успешно!")).shouldBe(Condition.visible);
+        $(".notification__content").shouldHave(Condition.text("Встреча успешно забронирована на " + planDate), Duration.ofSeconds(15)).shouldBe(Condition.visible);
 
     }
 
